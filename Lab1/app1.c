@@ -30,7 +30,7 @@ static struct option options[] = {
     ,{"detailed", no_argument,       0, 'd'}
     ,{"help",     no_argument,       0, 'h'}
     ,{"max",      optional_argument, 0, 'm'}
-    ,{0,          0,                 0, 0  }//Marks the end of the struct
+    ,{0,          0,                 0, 0  } //Marks the end of the struct
 };
 
 //Separated this function to have the --help argument
@@ -107,7 +107,7 @@ int main(int argc, char** argv)
     char*  path = NULL;
 
     //p and m require a value, so we add the : character after them
-    while((opt = getopt_long(argc, argv, "p:adhm::", options, NULL)) != -1)     //The documentation says that getopt_long returns -1 when it's "done"
+    while((opt = getopt_long(argc, argv, "p:adhm::", options, NULL)) != -1) //The documentation says that getopt_long returns -1 when it's "done"
     {
         switch(opt)
         {
@@ -148,7 +148,7 @@ int main(int argc, char** argv)
                     return EXIT_FAILURE;
                 }
                 char* endptr = NULL;
-                max = strtol(optarg, &endptr, 10); //"Safe" convert with error checking
+                max = strtol(optarg, &endptr, 10);          //"Safe" convert with error checking
                 if((endptr == optarg) || (*endptr != '\0')) //Checks if the string contains an invalid character (not a digit)
                 {
                     fprintf(stderr, "The provided string \"%s\" is not a valid number\n", optarg);
@@ -227,13 +227,13 @@ int main(int argc, char** argv)
 
         if(detailed)
         {
-            char f_type = parse_ftype(directory_entry->d_type);             // Parsing the d_type into a custom character
-            printf("%lu\t%s\t%s\t%ld bytes\t%c\t%s", directory_entry->d_ino // i_node, %lu is defined __ino_t -> __INO_T_TYPE -> __SYSCALL_ULONG_TYPE -> __ULONGWORD_TYPE -> unsigned long int
-                , get_user(file_stats.st_uid)                               // username from userid
-                , directory_entry->d_name                                   // file name
-                , file_stats.st_size                                        // file size in bytes
-                , f_type                                                    // file type
-                , ctime(&file_stats.st_mtim.tv_sec)                         // https://stackoverflow.com/questions/32438355/how-to-print-date-and-time-returned-by-stat-function
+            char f_type = parse_ftype(directory_entry->d_type);             //Parsing the d_type into a custom character
+            printf("%lu\t%s\t%s\t%ld bytes\t%c\t%s", directory_entry->d_ino //i_node, %lu is defined __ino_t -> __INO_T_TYPE -> __SYSCALL_ULONG_TYPE -> __ULONGWORD_TYPE -> unsigned long int
+                , get_user(file_stats.st_uid)                               //username from userid
+                , directory_entry->d_name                                   //file name
+                , file_stats.st_size                                        //file size in bytes
+                , f_type                                                    //file type
+                , ctime(&file_stats.st_mtim.tv_sec)                         //https://stackoverflow.com/questions/32438355/how-to-print-date-and-time-returned-by-stat-function
                 );
         }
         else
