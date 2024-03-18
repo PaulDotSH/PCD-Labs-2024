@@ -1,3 +1,10 @@
+/**
+ * Abrudan Paul - Andrei
+ * IA3 2023, subgrupa 1
+ * Tema 3.2.2
+ * Programul implementeaza o varianta de baza a unui shell, cu cerinta adaugata
+ */
+
 #include <stdio.h>    //input output
 #include <stdlib.h>   //getenv, exit statuses
 #include <unistd.h>   //exec chdir and other commands
@@ -69,7 +76,7 @@ int custom_system(char* command)
 }
 
 
-void execute_commands(char* commandLine)
+void adapted_system(char* commandLine)
 {
     char* commands[MAX_COMMANDS];
     char* command;
@@ -180,7 +187,7 @@ void shell()
             break;
         }
 
-        execute_commands(command);
+        adapted_system(command);
     }
 }
 
