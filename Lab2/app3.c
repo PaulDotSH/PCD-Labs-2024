@@ -1,3 +1,9 @@
+/**
+ * Abrudan Paul - Andrei
+ * IA3 2023, subgrupa 1
+ * Tema 2.3
+ * Programul implementeaza o versiune basic a comenzii "ps"
+ */
 #include <stdio.h>  //IO, including perror
 #include <stdlib.h> //Used for exit statuses, exit function and dynamic memory allocation
 #include <string.h> //Used for string search
