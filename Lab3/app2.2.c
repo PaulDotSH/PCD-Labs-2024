@@ -2,7 +2,7 @@
  * Abrudan Paul - Andrei
  * IA3 2023, subgrupa 1
  * Tema 3.2.2
- * Programul implementeaza o varianta de baza a unui shell, cu cerinta adaugata
+ * Programul implementeaza o varianta de baza a unui shell, cu cerinta pentru multiplele comenzi adaugata
  */
 
 #include <stdio.h>    //input output
