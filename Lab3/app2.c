@@ -66,7 +66,7 @@ int custom_system(char* command)
     }
 }
 
-void login(char* const username, char* const password)
+void is_login_correct(char* const username, char* const password)
 {
     FILE* file = fopen("/tmp/credentials.txt", "r");
     if(!file)
@@ -174,7 +174,7 @@ int main()
     fgets(password, sizeof(password), stdin);
     password[strcspn(password, "\n")] = 0; //Remove newline
 
-    login(username, password);
+    is_login_correct(username, password);
     shell();
 
     return 0;
